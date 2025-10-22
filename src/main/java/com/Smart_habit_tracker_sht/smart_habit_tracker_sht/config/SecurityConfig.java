@@ -17,7 +17,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
+import org.springframework.beans.factory.annotation.Value;
 import com.Smart_habit_tracker_sht.smart_habit_tracker_sht.security.CustomUserDetailsService;
 import com.Smart_habit_tracker_sht.smart_habit_tracker_sht.security.JwtAuthenticationFilter;
 
