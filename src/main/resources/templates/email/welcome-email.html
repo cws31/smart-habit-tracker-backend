@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Smart Habit Tracker</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 20px -20px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .feature {
+            background: #f8f9fa;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🚀 Welcome to Smart Habit Tracker!</h1>
+        <p>Your journey to better habits starts now</p>
+    </div>
+
+    <div class="content">
+        <h2>Hello, <span th:text="${name}">User</span>!</h2>
+
+        <p>We're thrilled to welcome you to Smart Habit Tracker! Get ready to transform your life one habit at a time.</p>
+
+        <div class="feature">
+            <strong>🎯 What you can do:</strong>
+            <ul>
+                <li>Track daily habits and build consistency</li>
+                <li>Set personal challenges and milestones</li>
+                <li>Monitor your progress with beautiful analytics</li>
+                <li>Join a community of habit builders</li>
+            </ul>
+        </div>
+
+        <div style="text-align: center;">
+            <a th:href="${baseUrl}" class="button">Start Building Habits</a>
+        </div>
+
+        <p><strong>Pro Tip:</strong> Start with just one habit and build consistency before adding more. Small, consistent actions lead to big transformations!</p>
+
+        <p>If you have any questions or need help getting started, don't hesitate to reply to this email.</p>
+
+        <p>Happy habit building!<br>
+            <strong>The Smart Habit Tracker Team</strong></p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Smart Habit Tracker. All rights reserved.</p>
+        <p>You're receiving this email because you signed up for Smart Habit Tracker.</p>
+    </div>
+</div>
+</body>
+</html>

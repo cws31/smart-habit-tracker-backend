@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Completed!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 20px -20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .header::before {
+            content: "🎉";
+            font-size: 60px;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            opacity: 0.7;
+        }
+        .header::after {
+            content: "✨";
+            font-size: 60px;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            opacity: 0.7;
+        }
+        .content {
+            padding: 20px;
+        }
+        .stats {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #4CAF50;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .button:hover {
+            background: #388E3C;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 12px;
+        }
+        .achievement-badge {
+            display: inline-block;
+            background: #FFD700;
+            color: #333;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>Challenge Completed! 🎯</h1>
+        <p>You've achieved an amazing milestone!</p>
+    </div>
+
+    <div class="content">
+        <h2>Congratulations, <span th:text="${name}">User</span>! 🏆</h2>
+
+        <p>You've successfully completed your <strong th:text="${challengeDays}"></strong>-day challenge for "<span th:text="${habitName}"></span>"!</p>
+
+        <div class="achievement-badge">Achievement Unlocked! ✅</div>
+
+        <div class="stats">
+            <h3>Your Achievement</h3>
+            <div style="display: flex; justify-content: space-around; margin: 20px 0;">
+                <div>
+                    <div style="font-size: 2em; font-weight: bold; color: #4CAF50;" th:text="${streak}"></div>
+                    <div style="font-size: 0.9em;">Total Days</div>
+                </div>
+                <div>
+                    <div style="font-size: 2em; font-weight: bold; color: #2196F3;" th:text="${challengeDays}"></div>
+                    <div style="font-size: 0.9em;">Challenge Target</div>
+                </div>
+            </div>
+        </div>
+
+        <p>This is an incredible achievement! Your consistency and dedication have paid off. 🚀</p>
+
+        <div style="text-align: center;">
+            <a th:href="${baseUrl}" class="button">Start Your Next Challenge</a>
+        </div>
+
+        <p>Keep up the amazing work! Remember, consistency is the key to building lasting habits.</p>
+
+        <p>Ready for your next challenge? Log in to set new goals and continue your journey!</p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Smart Habit Tracker. All rights reserved.</p>
+        <p>You're receiving this email because you completed a challenge in Smart Habit Tracker.</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Daily Habit Reminder</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+            margin: -20px -20px 20px -20px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .habit-list {
+            background: #f8f9fa;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .habit-item {
+            padding: 10px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 5px;
+            border-left: 3px solid #4CAF50;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .stats {
+            background: #e8f5e8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 12px;
+        }
+        .motivation {
+            font-style: italic;
+            color: #555;
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🌅 Good Morning, <span th:text="${name}">User</span>!</h1>
+        <p>Your daily habit tracker is ready for <span th:text="${date}">today</span></p>
+    </div>
+
+    <div class="content">
+        <div class="stats">
+            <h3>📊 Today's Overview</h3>
+            <p>You have <strong th:text="${totalHabits}">0</strong> habits to track today</p>
+            <p><strong th:text="${pendingHabitsCount}">0</strong> pending • <strong th:text="${completedHabitsCount}">0</strong> completed</p>
+        </div>
+
+        <div th:if="${!pendingHabits.empty}" class="habit-list">
+            <h3>📝 Your Habits for Today</h3>
+            <p>Here are your habits waiting to be completed:</p>
+
+            <div th:each="habit : ${pendingHabits}" class="habit-item">
+                <strong th:text="${habit.title}">Habit Title</strong>
+                <div th:if="${habit.description}" style="font-size: 0.9em; color: #666; margin-top: 5px;">
+                    <span th:text="${habit.description}">Description</span>
+                </div>
+                <div style="font-size: 0.8em; color: #888; margin-top: 3px;">
+                    🎯 Challenge: <span th:text="${habit.challengeDays}">21</span> days •
+                    🔥 Current Streak: <span th:text="${habit.currentStreak}">0</span> days
+                </div>
+            </div>
+        </div>
+
+        <div th:if="${pendingHabits.empty}" class="empty-state">
+            <h3>🎉 All Caught Up!</h3>
+            <p>You have no pending habits for today. Great job maintaining your routine!</p>
+            <p>Consider adding new habits to continue your growth journey.</p>
+        </div>
+
+        <div class="motivation">
+            <p>"Small daily improvements are the key to staggering long-term results."</p>
+        </div>
+
+        <div style="text-align: center;">
+            <a th:href="${baseUrl}" class="button">Mark Your Habits Complete</a>
+        </div>
+
+        <p style="text-align: center; color: #666; font-size: 0.9em;">
+            💡 <strong>Pro Tip:</strong> Complete your most important habit first thing in the morning to build momentum!
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Smart Habit Tracker. All rights reserved.</p>
+        <p>You're receiving this email because you have active habits in Smart Habit Tracker.</p>
+        <p>
+            <a th:href="${baseUrl + '/settings/notifications'}" style="color: #667eea; text-decoration: none;">
+                Manage notification preferences
+            </a>
+        </p>
+    </div>
+</div>
+</body>
+</html>
