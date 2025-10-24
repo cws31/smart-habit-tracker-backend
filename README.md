@@ -39,8 +39,8 @@ Configure your MySQL database connection in `application.properties`:
 
 ```properties
 spring.datasource.url=${DATABASE_URL:jdbc:mysql://localhost:3306/SHT}
-spring.datasource.username=${DATABASE_USERNAME:root}
-spring.datasource.password=${DATABASE_PASSWORD:root}
+spring.datasource.username=${DATABASE_USERNAME}
+spring.datasource.password=${DATABASE_PASSWORD}
 ```
 
 ### Email Configuration
